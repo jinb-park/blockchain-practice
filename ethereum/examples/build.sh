@@ -1,3 +1,3 @@
 #!/bin/sh
 
-solc -o out/ --bin --asm faucet.sol
+solc -o out/ --optimize --bin --asm Faucet2.sol

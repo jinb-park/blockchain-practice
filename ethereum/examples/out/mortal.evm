@@ -1,0 +1,129 @@
+    /* "Faucet2.sol":317:422  contract mortal is owned {... */
+  mstore(0x40, 0x80)
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+    /* "Faucet2.sol":99:104  owner */
+  0x00
+    /* "Faucet2.sol":99:126  owner = payable(msg.sender) */
+  dup1
+  sload
+  not(sub(shl(0xa0, 0x01), 0x01))
+  and
+    /* "Faucet2.sol":115:125  msg.sender */
+  caller
+    /* "Faucet2.sol":99:126  owner = payable(msg.sender) */
+  or
+  swap1
+  sstore
+    /* "Faucet2.sol":317:422  contract mortal is owned {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "Faucet2.sol":317:422  contract mortal is owned {... */
+      mstore(0x40, 0x80)
+      callvalue
+      dup1
+      iszero
+      tag_1
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_1:
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x83197ef0
+      eq
+      tag_3
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "Faucet2.sol":348:420  function destroy() public onlyOwner {... */
+    tag_3:
+      tag_4
+      tag_5
+      jump	// in
+    tag_4:
+      stop
+    tag_5:
+        /* "Faucet2.sol":248:253  owner */
+      and(sub(shl(0xa0, 0x01), 0x01), sload(0x00))
+        /* "Faucet2.sol":234:244  msg.sender */
+      caller
+        /* "Faucet2.sol":234:253  msg.sender == owner */
+      eq
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+      tag_7
+      jumpi
+      mload(0x40)
+      shl(0xe5, 0x461bcd)
+      dup2
+      mstore
+        /* "#utility.yul":216:218   */
+      0x20
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+      0x04
+      dup3
+      add
+        /* "#utility.yul":198:219   */
+      mstore
+        /* "#utility.yul":255:257   */
+      0x25
+        /* "#utility.yul":235:253   */
+      0x24
+      dup3
+      add
+        /* "#utility.yul":228:258   */
+      mstore
+        /* "#utility.yul":294:328   */
+      0x4f6e6c792074686520636f6e7472616374206f776e65722063616e2063616c6c
+        /* "#utility.yul":274:292   */
+      0x44
+      dup3
+      add
+        /* "#utility.yul":267:329   */
+      mstore
+      shl(0xd8, 0x2074686973)
+        /* "#utility.yul":345:363   */
+      0x64
+      dup3
+      add
+        /* "#utility.yul":338:373   */
+      mstore
+        /* "#utility.yul":390:409   */
+      0x84
+      add
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_7:
+        /* "Faucet2.sol":407:412  owner */
+      and(sub(shl(0xa0, 0x01), 0x01), sload(0x00))
+        /* "Faucet2.sol":394:413  selfdestruct(owner) */
+      selfdestruct
+
+    auxdata: 0xa26469706673582212206a5ddc01e1543e50792c5528e352153da3188dc90ce4b3f584e4b142ff1b602164736f6c634300080d0033
+}

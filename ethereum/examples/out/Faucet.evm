@@ -1,0 +1,363 @@
+    /* "Faucet2.sol":424:923  contract Faucet is mortal {... */
+  mstore(0x40, 0x80)
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+    /* "Faucet2.sol":99:104  owner */
+  0x00
+    /* "Faucet2.sol":99:126  owner = payable(msg.sender) */
+  dup1
+  sload
+  not(sub(shl(0xa0, 0x01), 0x01))
+  and
+    /* "Faucet2.sol":115:125  msg.sender */
+  caller
+    /* "Faucet2.sol":99:126  owner = payable(msg.sender) */
+  or
+  swap1
+  sstore
+    /* "Faucet2.sol":424:923  contract Faucet is mortal {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "Faucet2.sol":424:923  contract Faucet is mortal {... */
+      mstore(0x40, 0x80)
+      jumpi(tag_1, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x12514bba
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x83197ef0
+      eq
+      tag_4
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_1:
+      jumpi(tag_2, calldatasize)
+        /* "Faucet2.sol":897:902  owner */
+      sload(0x00)
+        /* "Faucet2.sol":889:914  Deposit(owner, msg.value) */
+      mload(0x40)
+        /* "Faucet2.sol":904:913  msg.value */
+      callvalue
+        /* "#utility.yul":160:185   */
+      dup2
+      mstore
+      sub(shl(0xa0, 0x01), 0x01)
+        /* "Faucet2.sol":897:902  owner */
+      swap1
+      swap2
+      and
+      swap1
+        /* "Faucet2.sol":889:914  Deposit(owner, msg.value) */
+      0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c
+      swap1
+        /* "#utility.yul":148:150   */
+      0x20
+        /* "#utility.yul":133:151   */
+      add
+        /* "Faucet2.sol":889:914  Deposit(owner, msg.value) */
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log2
+        /* "Faucet2.sol":424:923  contract Faucet is mortal {... */
+      stop
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "Faucet2.sol":565:841  function transfer(uint withdraw_amount) public payable {... */
+    tag_3:
+      tag_9
+      tag_10
+      calldatasize
+      0x04
+      tag_11
+      jump	// in
+    tag_10:
+      tag_12
+      jump	// in
+    tag_9:
+      stop
+        /* "Faucet2.sol":348:420  function destroy() public onlyOwner {... */
+    tag_4:
+      callvalue
+      dup1
+      iszero
+      tag_13
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_13:
+      pop
+      tag_9
+      tag_15
+      jump	// in
+        /* "Faucet2.sol":565:841  function transfer(uint withdraw_amount) public payable {... */
+    tag_12:
+        /* "Faucet2.sol":657:666  0.1 ether */
+      0x016345785d8a0000
+        /* "Faucet2.sol":638:653  withdraw_amount */
+      dup2
+        /* "Faucet2.sol":638:666  withdraw_amount <= 0.1 ether */
+      gt
+      iszero
+        /* "Faucet2.sol":630:667  require(withdraw_amount <= 0.1 ether) */
+      tag_17
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_17:
+        /* "Faucet2.sol":710:725  withdraw_amount */
+      dup1
+        /* "Faucet2.sol":685:706  address(this).balance */
+      selfbalance
+        /* "Faucet2.sol":685:725  address(this).balance >= withdraw_amount */
+      lt
+      iszero
+        /* "Faucet2.sol":677:750  require(address(this).balance >= withdraw_amount, "Insufficient balance") */
+      tag_18
+      jumpi
+      mload(0x40)
+      shl(0xe5, 0x461bcd)
+      dup2
+      mstore
+        /* "#utility.yul":583:585   */
+      0x20
+        /* "Faucet2.sol":677:750  require(address(this).balance >= withdraw_amount, "Insufficient balance") */
+      0x04
+      dup3
+      add
+        /* "#utility.yul":565:586   */
+      mstore
+        /* "#utility.yul":622:624   */
+      0x14
+        /* "#utility.yul":602:620   */
+      0x24
+      dup3
+      add
+        /* "#utility.yul":595:625   */
+      mstore
+      shl(0x60, 0x496e73756666696369656e742062616c616e6365)
+        /* "#utility.yul":641:659   */
+      0x44
+      dup3
+      add
+        /* "#utility.yul":634:684   */
+      mstore
+        /* "#utility.yul":701:719   */
+      0x64
+      add
+        /* "Faucet2.sol":677:750  require(address(this).balance >= withdraw_amount, "Insufficient balance") */
+    tag_19:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_18:
+        /* "Faucet2.sol":761:766  owner */
+      0x00
+      dup1
+      sload
+        /* "Faucet2.sol":761:786  owner.transfer(msg.value) */
+      mload(0x40)
+      sub(shl(0xa0, 0x01), 0x01)
+        /* "Faucet2.sol":761:766  owner */
+      swap1
+      swap2
+      and
+      swap2
+        /* "Faucet2.sol":776:785  msg.value */
+      callvalue
+        /* "Faucet2.sol":761:786  owner.transfer(msg.value) */
+      dup1
+      iszero
+      0x08fc
+      mul
+      swap3
+        /* "Faucet2.sol":776:785  msg.value */
+      swap1
+      swap2
+        /* "Faucet2.sol":761:786  owner.transfer(msg.value) */
+      dup2
+        /* "Faucet2.sol":761:766  owner */
+      dup2
+        /* "Faucet2.sol":761:786  owner.transfer(msg.value) */
+      dup2
+        /* "Faucet2.sol":776:785  msg.value */
+      dup6
+        /* "Faucet2.sol":761:766  owner */
+      dup9
+        /* "Faucet2.sol":761:786  owner.transfer(msg.value) */
+      dup9
+      call
+      swap4
+      pop
+      pop
+      pop
+      pop
+      iszero
+      dup1
+      iszero
+      tag_22
+      jumpi
+      returndatasize
+      0x00
+      dup1
+      returndatacopy
+      revert(0x00, returndatasize)
+    tag_22:
+      pop
+        /* "Faucet2.sol":811:816  owner */
+      sload(0x00)
+        /* "Faucet2.sol":801:834  withdrawl(owner, withdraw_amount) */
+      mload(0x40)
+        /* "#utility.yul":160:185   */
+      dup3
+      dup2
+      mstore
+      sub(shl(0xa0, 0x01), 0x01)
+        /* "Faucet2.sol":811:816  owner */
+      swap1
+      swap2
+      and
+      swap1
+        /* "Faucet2.sol":801:834  withdrawl(owner, withdraw_amount) */
+      0x5afbed92d4941f0d4f191d133da98098254352f0196e7b3834378b4c66480928
+      swap1
+        /* "#utility.yul":148:150   */
+      0x20
+        /* "#utility.yul":133:151   */
+      add
+        /* "Faucet2.sol":801:834  withdrawl(owner, withdraw_amount) */
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log2
+        /* "Faucet2.sol":565:841  function transfer(uint withdraw_amount) public payable {... */
+      pop
+      jump	// out
+        /* "Faucet2.sol":348:420  function destroy() public onlyOwner {... */
+    tag_15:
+        /* "Faucet2.sol":248:253  owner */
+      and(sub(shl(0xa0, 0x01), 0x01), sload(0x00))
+        /* "Faucet2.sol":234:244  msg.sender */
+      caller
+        /* "Faucet2.sol":234:253  msg.sender == owner */
+      eq
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+      tag_25
+      jumpi
+      mload(0x40)
+      shl(0xe5, 0x461bcd)
+      dup2
+      mstore
+        /* "#utility.yul":932:934   */
+      0x20
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+      0x04
+      dup3
+      add
+        /* "#utility.yul":914:935   */
+      mstore
+        /* "#utility.yul":971:973   */
+      0x25
+        /* "#utility.yul":951:969   */
+      0x24
+      dup3
+      add
+        /* "#utility.yul":944:974   */
+      mstore
+        /* "#utility.yul":1010:1044   */
+      0x4f6e6c792074686520636f6e7472616374206f776e65722063616e2063616c6c
+        /* "#utility.yul":990:1008   */
+      0x44
+      dup3
+      add
+        /* "#utility.yul":983:1045   */
+      mstore
+      shl(0xd8, 0x2074686973)
+        /* "#utility.yul":1061:1079   */
+      0x64
+      dup3
+      add
+        /* "#utility.yul":1054:1089   */
+      mstore
+        /* "#utility.yul":1106:1125   */
+      0x84
+      add
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+      tag_19
+        /* "#utility.yul":730:1131   */
+      jump
+        /* "Faucet2.sol":226:295  require(msg.sender == owner, "Only the contract owner can call this") */
+    tag_25:
+        /* "Faucet2.sol":407:412  owner */
+      and(sub(shl(0xa0, 0x01), 0x01), sload(0x00))
+        /* "Faucet2.sol":394:413  selfdestruct(owner) */
+      selfdestruct
+        /* "#utility.yul":196:376   */
+    tag_11:
+        /* "#utility.yul":255:261   */
+      0x00
+        /* "#utility.yul":308:310   */
+      0x20
+        /* "#utility.yul":296:305   */
+      dup3
+        /* "#utility.yul":287:294   */
+      dup5
+        /* "#utility.yul":283:306   */
+      sub
+        /* "#utility.yul":279:311   */
+      slt
+        /* "#utility.yul":276:328   */
+      iszero
+      tag_32
+      jumpi
+        /* "#utility.yul":324:325   */
+      0x00
+        /* "#utility.yul":321:322   */
+      dup1
+        /* "#utility.yul":314:326   */
+      revert
+        /* "#utility.yul":276:328   */
+    tag_32:
+      pop
+        /* "#utility.yul":347:370   */
+      calldataload
+      swap2
+        /* "#utility.yul":196:376   */
+      swap1
+      pop
+      jump	// out
+
+    auxdata: 0xa2646970667358221220f034ee6718fba00bfbd07bf21421135067fe34b861ec7535444b023bbbb9bde764736f6c634300080d0033
+}
