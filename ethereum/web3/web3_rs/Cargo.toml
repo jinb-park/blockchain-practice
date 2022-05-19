@@ -6,3 +6,4 @@ edition = "2018"
 [dependencies]
 tokio = "1.18.2"
 web3 = "0.18.0"
+secp256k1 = "0.21"
